@@ -35,7 +35,7 @@ class handler(BaseHTTPRequestHandler):
                 'limite_alerta': item['limite'],
                 'variacao': variacao_fake,
                 # URL de Ícone dinâmica para o Bubble exibir
-                'icone_url': f"https://img.logo.dev/{item['slug']}.com?token=pk_test_placeholder" 
+                'icone_url': f"https://img.logo.dev/{item['slug']}.com?token=pk_c8mejJ0DSbKW1tncyocxhw" 
             })
         
         df = pd.DataFrame(dados_dinamicos)
