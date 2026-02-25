@@ -16,13 +16,24 @@ class handler(BaseHTTPRequestHandler):
         proporcao_passada = dia_atual / ultimo_dia_mes
 
         # 3. SEUS DADOS BASE
-        dados = {
-            'servico': ['OpenAI', 'SendGrid', 'Google Maps', 'Supabase', 'Stripe'],
-            'uso_atual': [450.50, 89.00, 1200.00, 25.00, 510.00],
-            'limite_alerta': [400.00, 100.00, 1000.00, 50.00, 500.00]
-        }
+        servicos = ['OpenAI', 'SendGrid', 'Google Maps', 'Supabase', 'Stripe']
+        limites = [400, 100, 1000, 50, 500]
         
-        df = pd.DataFrame(dados)
+        dados_dinamicos = []
+        for i in range(len(servicos)):
+            # Gera um valor entre 10% e 120% do limite para criar variação real
+            uso_fake = round(random.uniform(limites[i] * 0.1, limites[i] * 1.2), 2)
+            # Gera uma variação percentual aleatória para o ícone de tendência (ex: +4.2%)
+            variacao_fake = round(random.uniform(-5.0, 15.0), 1)
+            
+            dados_dinamicos.append({
+                'servico': servicos[i],
+                'uso_atual': uso_fake,
+                'limite_alerta': limites[i],
+                'variacao': variacao_fake
+            })
+        
+        df = pd.DataFrame(dados_dinamicos)
 
         # 4. LÓGICA DE ESTIMATIVA (A "MÁGICA" DO PYTHON)
         # Calculamos quanto o usuário gastará até o fim do mês se mantiver o ritmo
