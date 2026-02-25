@@ -20,7 +20,7 @@ class handler(BaseHTTPRequestHandler):
             {'nome': 'SendGrid', 'limite': 100, 'slug': 'sendgrid'},
             {'nome': 'Google Maps', 'limite': 1000, 'slug': 'google-maps'},
             {'nome': 'Supabase', 'limite': 50, 'slug': 'supabase'},
-            {'nome': 'Stripe', 'limite': 500, 'slug': 'stripe'}
+            {'nome': 'AWS', 'limite': 2500, 'slug': 'amazon'}
         ]
         
         dados_dinamicos = []
